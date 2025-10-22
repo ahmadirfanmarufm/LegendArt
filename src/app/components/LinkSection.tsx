@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ModalStory from "./ModalStory";
 import ModalVideo from "./ModalVideo";
-import { FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
 
 interface LinkItem {
   title: string;
@@ -18,9 +18,9 @@ interface Member {
   role: string;
   avatar: string;
   socials?: {
-    instagram?: string,
-    linkedin?: string,
-  }
+    instagram?: string;
+    linkedin?: string;
+  };
 }
 
 const paintings = [
@@ -34,7 +34,8 @@ const members: Member[] = [
   {
     name: "Mr. Amba",
     role: "Ketua & Kurator",
-    avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdQI8ZxR2mngBLhDY1kA7WeQlnPb9ZUZcuI1G-CuUjltXBgvw7ssVRJNwQBKwbSxZMIRw&usqp=CAU",
+    avatar:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdQI8ZxR2mngBLhDY1kA7WeQlnPb9ZUZcuI1G-CuUjltXBgvw7ssVRJNwQBKwbSxZMIRw&usqp=CAU",
     socials: {
       instagram: "https://instagram.com/tamvan1",
       linkedin: "https://linkedin.com/in/tamvan1",
@@ -43,7 +44,8 @@ const members: Member[] = [
   {
     name: "Rusdi",
     role: "Desainer Visual",
-    avatar: "https://i.pinimg.com/736x/6c/7b/d0/6c7bd05189c6c6da96fff6705301afa5.jpg",
+    avatar:
+      "https://i.pinimg.com/736x/6c/7b/d0/6c7bd05189c6c6da96fff6705301afa5.jpg",
     socials: {
       instagram: "https://instagram.com/tamvan2",
     },
@@ -51,7 +53,8 @@ const members: Member[] = [
   {
     name: "Fuad",
     role: "Peneliti Seni",
-    avatar: "https://i.pinimg.com/736x/51/c5/8e/51c58e46e4c4c818836817758da0cfe2.jpg",
+    avatar:
+      "https://i.pinimg.com/736x/51/c5/8e/51c58e46e4c4c818836817758da0cfe2.jpg",
     socials: {
       instagram: "https://instagram.com/tamvan3",
     },
@@ -59,7 +62,8 @@ const members: Member[] = [
   {
     name: "Mr. Ironi",
     role: "Teknologi & Video",
-    avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ks-MeGvK0F7hU9-NMfLaz7eDfRpeXXhPzsYj82Mrpin9bz9QtCVI24L1KnhtTteQNTs&usqp=CAU",
+    avatar:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ks-MeGvK0F7hU9-NMfLaz7eDfRpeXXhPzsYj82Mrpin9bz9QtCVI24L1KnhtTteQNTs&usqp=CAU",
     socials: {
       linkedin: "https://linkedin.com/in/tamvan4",
     },
@@ -72,9 +76,10 @@ export default function LinkTreeSection() {
   const [showMembers, setShowMembers] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % paintings.length);
-    }, 4000);
+    const interval = setInterval(
+      () => setIndex((prev) => (prev + 1) % paintings.length),
+      4000
+    );
     return () => clearInterval(interval);
   }, []);
 
@@ -84,12 +89,28 @@ export default function LinkTreeSection() {
   }, []);
 
   const links: LinkItem[] = [
-    { title: "🎨 Tonton Proses Lukisan", url: "#", thumbnail: "/images/thumb_proses.jpg", action: "video" },
-    { title: "📖 Tentang Sang Legenda", url: "#", thumbnail: "/images/thumb_legenda.jpg", action: "story" },
+    {
+      title: "🎨 Tonton Proses Lukisan",
+      url: "#",
+      thumbnail: "/images/thumb_proses.jpg",
+      action: "video",
+    },
+    {
+      title: "📖 Tentang Sang Legenda",
+      url: "#",
+      thumbnail: "/images/thumb_legenda.jpg",
+      action: "story",
+    },
     { title: "💬 Beri Feedback", url: "#", thumbnail: "/images/thumb_feedback.jpg" },
   ];
 
-  const SocialIcon = ({ type, url }: { type: "instagram" | "linkedin"; url: string }) => {
+  const SocialIcon = ({
+    type,
+    url,
+  }: {
+    type: "instagram" | "linkedin";
+    url: string;
+  }) => {
     const icons = {
       instagram: <FaInstagram className="w-5 h-5" />,
       linkedin: <FaLinkedin className="w-5 h-5" />,
@@ -100,7 +121,7 @@ export default function LinkTreeSection() {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-yellow-300 hover:text-yellow-300/50 transition-colors duration-300"
+        className="text-yellow-700 hover:text-yellow-700/50 transition-colors duration-300"
         title={type}
       >
         {icons[type]}
@@ -110,31 +131,28 @@ export default function LinkTreeSection() {
 
   return (
     <div
-      className="relative min-h-screen flex flex-col items-center justify-start text-white overflow-hidden px-4 pt-10 pb-20"
-      style={{
-        backgroundImage: "linear-gradient(to bottom right, #3b1f0e, #5a2e1f, #a8703d)",
-        backgroundSize: "cover",
-        backgroundPosition: "center"
-      }}
+      className="relative min-h-screen flex flex-col items-center justify-start text-[#3b2f2f] overflow-hidden px-4 pt-10 pb-20 
+      bg-gradient-to-br from-[#fff8e1] via-[#f3d98a] via-40% via-[#eecb66] to-[#a47cc2] bg-cover bg-center"
     >
+      {/* Ornamen */}
       <img
         src="/images/seni3.png"
-        alt="Wayang"
+        alt="Awan"
         className="absolute left-0 bottom-10 md:top-10 w-40 sm:w-56 opacity-25 animate-floating"
       />
       <img
-        src="/images/seni2.png"
+        src="/images/seni4.png"
         alt="Daun"
-        className="absolute right-0 bottom-10 w-44 sm:w-60 opacity-40 animate-floating-slow"
+        className="absolute right-0 bottom-0 w-48 sm:w-60 opacity-40 animate-floating-slow"
       />
 
       {/* Judul */}
-      <h1 className="title tracking-widest text-3xl sm:text-4xl md:text-6xl mb-6 text-yellow-300 drop-shadow-[0_0_10px_rgba(255,220,100,0.6)] animate-fade-in">
+      <h1 className="title tracking-widest text-3xl sm:text-4xl md:text-6xl mb-6 text-yellow-600 drop-shadow-[0_0_20px_rgba(250,204,21,0.8)] animate-fade-in">
         Jelajahi Legenda
       </h1>
 
-      {/* 🔥 Carousel Lukisan */}
-      <div className="relative w-full max-w-2xl h-64 mb-8 rounded-2xl overflow-hidden shadow-2xl border-2 border-yellow-500 animate-fade-in">
+      {/* Carousel Lukisan */}
+      <div className="relative w-full max-w-2xl h-64 mb-8 rounded-2xl overflow-hidden shadow-2xl border-2 border-[#c78b2d] animate-fade-in">
         {paintings.map((src, i) => (
           <img
             key={src}
@@ -150,15 +168,15 @@ export default function LinkTreeSection() {
             <button
               key={i}
               onClick={() => setIndex(i)}
-              className={`w-3 h-3 rounded-full ${
-                i === index ? "bg-yellow-400" : "bg-white/50"
+              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                i === index ? "bg-yellow-400" : "bg-[#c78b2d]/40"
               }`}
             />
           ))}
         </div>
       </div>
 
-      {/* Daftar Link dengan Thumbnail */}
+      {/* Daftar Link */}
       <div className="flex flex-col gap-5 w-72 sm:w-80 animate-fade-in">
         {links.map((link) => (
           <button
@@ -168,22 +186,25 @@ export default function LinkTreeSection() {
               else if (link.action === "video") setModal("video");
               else window.open(link.url, "_blank");
             }}
-            className="border border-yellow-400 py-3 rounded-xl text-center text-lg font-semibold
-              transition-all duration-300 shadow-lg hover:scale-105 bg-yellow-600/10 hover:bg-yellow-600/30 cursor-pointer"
+            className="border border-[#c78b2d] py-3 rounded-xl text-center text-lg font-semibold
+            transition-all duration-300 shadow-md hover:scale-105 
+            bg-gradient-to-br from-[#fff9e8]/80 via-[#fff5e1]/70 to-[#a47cc2]/20 
+            hover:from-[#fff9e8] hover:to-[#a47cc2]/60 
+            cursor-pointer text-[#3b2f2f]"
           >
-            <span className="text-lg font-semibold">{link.title}</span>
+            <span className="subtitle text-base tracking-widest">{link.title}</span>
           </button>
         ))}
       </div>
 
-      {/* 👥 Anggota Kelompok */}
+      {/* Anggota Kelompok */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={showMembers ? { opacity: 1 } : {}}
         transition={{ duration: 0.8 }}
         className="w-full max-w-6xl mt-12 px-2"
       >
-        <h2 className="title tracking-widest text-center text-3xl sm:text-4xl mb-6 text-yellow-300 drop-shadow-[0_0_10px_rgba(255,220,100,0.6)] animate-fade-in">
+        <h2 className="title tracking-widest text-center text-3xl sm:text-4xl mb-6 text-yellow-600 drop-shadow-[0_0_20px_rgba(250,204,21,0.8)] animate-fade-in">
           Tim Dibalik Layar
         </h2>
 
@@ -194,7 +215,7 @@ export default function LinkTreeSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={showMembers ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: i * 0.08, duration: 0.4 }}
-              className="flex-shrink-0 w-36 md:w-auto bg-yellow-800/20 backdrop-blur-sm border border-yellow-500/40 rounded-2xl p-4 duration-300 hover:scale-105 transition-all flex flex-col items-center"
+              className="flex-shrink-0 w-36 md:w-auto bg-[#fff5e1]/60 backdrop-blur-sm border border-[#c78b2d] rounded-2xl p-4 duration-300 hover:scale-105 transition-all flex flex-col items-center"
             >
               <img
                 src={member.avatar || "/images/avatar-placeholder.png"}
@@ -214,10 +235,10 @@ export default function LinkTreeSection() {
                 </div>
               )}
 
-              <p className="text-sm md:text-base font-semibold text-yellow-100 text-center">
+              <p className="subtitle text-sm md:text-base font-semibold text-[#3b2f2f] text-center">
                 {member.name}
               </p>
-              <p className="text-xs text-yellow-200 opacity-80 text-center mt-1">
+              <p className="subtitle text-xs text-yellow-600 opacity-80 text-center mt-1">
                 {member.role}
               </p>
             </motion.div>
@@ -226,10 +247,14 @@ export default function LinkTreeSection() {
       </motion.div>
 
       {/* Gelombang bawah */}
-      <div
-        className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-yellow-900/70 to-transparent"
+      <motion.div
+        initial={{ y: 0 }}
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-0 w-full h-36 bg-gradient-to-br from-[#fff8e1] via-[#f3d98a] via-40% via-[#eecb66] to-[#a47cc2] bg-cover bg-center to-transparent"
         style={{
-          clipPath: "polygon(0 70%, 25% 65%, 50% 75%, 75% 65%, 100% 70%, 100% 100%, 0 100%)",
+          clipPath:
+            "polygon(0 70%, 25% 65%, 50% 75%, 75% 65%, 100% 70%, 100% 100%, 0 100%)",
         }}
       />
 
