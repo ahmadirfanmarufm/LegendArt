@@ -24,7 +24,7 @@ interface Member {
 }
 
 const paintings = [
-  "https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2022/12/06/3148179097.jpg",
+  "/images/lukisan.jpg",
   "https://luxuo-id-production.s3.ap-southeast-1.amazonaws.com/2021/03/pic-1-art-justian.jpg",
   "https://indoartnow.com/uploads/artwork/image/22075/artwork-1487683039.jpg",
   "https://64.media.tumblr.com/b1983be38c79c67313ec64a5f296c9ab/tumblr_inline_pb59fmEo4o1qg2a3v_500.jpg",
@@ -71,17 +71,8 @@ const members: Member[] = [
 ];
 
 export default function LinkTreeSection() {
-  const [index, setIndex] = useState(0);
   const [modal, setModal] = useState<"story" | "video" | null>(null);
   const [showMembers, setShowMembers] = useState(false);
-
-  useEffect(() => {
-    const interval = setInterval(
-      () => setIndex((prev) => (prev + 1) % paintings.length),
-      4000
-    );
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowMembers(true), 1000);
@@ -148,32 +139,16 @@ export default function LinkTreeSection() {
 
       {/* Judul */}
       <h1 className="title tracking-widest text-3xl sm:text-4xl md:text-6xl mb-6 text-yellow-600 drop-shadow-[0_0_20px_rgba(250,204,21,0.8)] animate-fade-in">
-        Jelajahi Legenda
+        Jelajahi Nusantara
       </h1>
 
       {/* Carousel Lukisan */}
       <div className="relative w-full max-w-2xl h-64 mb-8 rounded-2xl overflow-hidden shadow-2xl border-2 border-[#c78b2d] animate-fade-in">
-        {paintings.map((src, i) => (
-          <img
-            key={src}
-            src={src}
-            alt={`Lukisan ${i + 1}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-              i === index ? "opacity-100" : "opacity-0"
-            }`}
-          />
-        ))}
-        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2">
-          {paintings.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                i === index ? "bg-yellow-400" : "bg-[#c78b2d]/40"
-              }`}
-            />
-          ))}
-        </div>
+        <img
+          src="/images/lukisan.jpg"
+          alt="Lukisan"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+        />
       </div>
 
       {/* Daftar Link */}

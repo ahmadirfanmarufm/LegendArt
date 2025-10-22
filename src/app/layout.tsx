@@ -13,8 +13,8 @@ const sublegenda = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "Legenda Nusantara",
-  description: "Pameran Seni Lukisan Legenda Indonesia",
+  title: "Comiculture Nusantara",
+  description: "Pameran Seni Lukisan Comiculture Nusantara",
 };
 
 export default function RootLayout({

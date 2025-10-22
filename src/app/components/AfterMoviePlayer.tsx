@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 interface AfterMoviePlayerProps {
   onEnd: () => void;
@@ -42,12 +43,18 @@ export default function AfterMoviePlayer({ onEnd }: AfterMoviePlayerProps) {
           transition-all duration-1000 ease-in-out
           ${fadeOutOpening ? "opacity-0 blur-md scale-105" : "opacity-100 blur-0 scale-100"}`}
         >
-          <h1 className="title text-5xl md:text-7xl text-[#8b5e3c] drop-shadow-[0_0_10px_rgba(199,139,45,0.3)] tracking-widest animate-fade-in">
-            Legenda yang Hidup
-          </h1>
-          <p className="subtitle mt-3 sm:mt-4 text-base sm:text-md md:text-lg text-[#8b5e3c] tracking-widest opacity-80 animate-fade-in">
-            “Ketika seni berbicara, waktu berhenti...”
-          </p>
+          <motion.img
+            src="/images/comiculture_nusantara.png"
+            alt="Comiculture Nusantara"
+            className="mx-auto 
+            h-[48vh] 2xl:h-[52vh]
+            w-auto max-w-[90vw] object-contain
+            drop-shadow-[0_0_10px_rgba(199,139,45,0.3)]
+            px-4 md:px-8"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 2, ease: 'easeOut' }}
+          />
         </div>
       )}
 
