@@ -35,7 +35,7 @@ export default function AfterMoviePlayer({ onEnd }: AfterMoviePlayerProps) {
   }, [onEnd]);
 
   return (
-    <div className="relative w-screen h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: "#FFF8F0" }}>
+    <div className="fixed inset-0 flex items-center justify-center overflow-hidden bg-[#FFF8F0]">
       {!showVideo && (
         <div
           className={`absolute inset-0 flex flex-col items-center justify-center text-center px-6 sm:px-8

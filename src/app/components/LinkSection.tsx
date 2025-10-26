@@ -4,146 +4,92 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ModalStory from "./ModalStory";
 import ModalVideo from "./ModalVideo";
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 
 interface LinkItem {
   title: string;
   url: string;
-  thumbnail?: string;
   action?: "story" | "video";
 }
 
 interface Member {
   name: string;
-  role: string;
   avatar: string;
-  socials?: {
-    instagram?: string;
-    linkedin?: string;
-  };
 }
-
-const paintings = [
-  "/images/lukisan.jpg",
-  "https://luxuo-id-production.s3.ap-southeast-1.amazonaws.com/2021/03/pic-1-art-justian.jpg",
-  "https://indoartnow.com/uploads/artwork/image/22075/artwork-1487683039.jpg",
-  "https://64.media.tumblr.com/b1983be38c79c67313ec64a5f296c9ab/tumblr_inline_pb59fmEo4o1qg2a3v_500.jpg",
-];
 
 const members: Member[] = [
   {
-    name: "Mr. Amba",
-    role: "Ketua & Kurator",
+    name: "Tiana Faza Anissa",
     avatar:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdQI8ZxR2mngBLhDY1kA7WeQlnPb9ZUZcuI1G-CuUjltXBgvw7ssVRJNwQBKwbSxZMIRw&usqp=CAU",
-    socials: {
-      instagram: "https://instagram.com/tamvan1",
-      linkedin: "https://linkedin.com/in/tamvan1",
-    },
+      "/images/faza.jpg",
   },
   {
-    name: "Rusdi",
-    role: "Desainer Visual",
+    name: "Dandy Farel Kenedy",
     avatar:
-      "https://i.pinimg.com/736x/6c/7b/d0/6c7bd05189c6c6da96fff6705301afa5.jpg",
-    socials: {
-      instagram: "https://instagram.com/tamvan2",
-    },
+      "/images/dandy.jpg",
   },
   {
-    name: "Fuad",
-    role: "Peneliti Seni",
+    name: "Nazwa Naila Mi'raj",
     avatar:
-      "https://i.pinimg.com/736x/51/c5/8e/51c58e46e4c4c818836817758da0cfe2.jpg",
-    socials: {
-      instagram: "https://instagram.com/tamvan3",
-    },
+      "/images/nazwa.jpg",
   },
   {
-    name: "Mr. Ironi",
-    role: "Teknologi & Video",
+    name: "Sevchenko Ananta Kusnadi",
     avatar:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ks-MeGvK0F7hU9-NMfLaz7eDfRpeXXhPzsYj82Mrpin9bz9QtCVI24L1KnhtTteQNTs&usqp=CAU",
-    socials: {
-      linkedin: "https://linkedin.com/in/tamvan4",
-    },
+      "/images/sevchenko.jpg",
+  },
+  {
+    name: "Cherryl Madina Ananda Rizkia",
+    avatar:
+      "/images/cherryl.jpg",
   },
 ];
 
 export default function LinkTreeSection() {
   const [modal, setModal] = useState<"story" | "video" | null>(null);
-  const [showMembers, setShowMembers] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowMembers(true), 1000);
-    return () => clearTimeout(timer);
-  }, []);
 
   const links: LinkItem[] = [
     {
-      title: "🎨 Tonton Proses Lukisan",
+      title: "🎬 Saksikan Kembali Kisah Kami",
       url: "#",
-      thumbnail: "/images/thumb_proses.jpg",
       action: "video",
     },
     {
-      title: "📖 Tentang Sang Legenda",
+      title: "📖 Filosofi di Baliknya",
       url: "#",
-      thumbnail: "/images/thumb_legenda.jpg",
       action: "story",
     },
-    { title: "💬 Beri Feedback", url: "#", thumbnail: "/images/thumb_feedback.jpg" },
   ];
-
-  const SocialIcon = ({
-    type,
-    url,
-  }: {
-    type: "instagram" | "linkedin";
-    url: string;
-  }) => {
-    const icons = {
-      instagram: <FaInstagram className="w-5 h-5" />,
-      linkedin: <FaLinkedin className="w-5 h-5" />,
-    };
-
-    return (
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-yellow-700 hover:text-yellow-700/50 transition-colors duration-300"
-        title={type}
-      >
-        {icons[type]}
-      </a>
-    );
-  };
 
   return (
     <div
-      className="relative min-h-screen flex flex-col items-center justify-start text-[#3b2f2f] overflow-hidden px-4 pt-10 pb-20 
-      bg-gradient-to-br from-[#fff8e1] via-[#f3d98a] via-40% via-[#eecb66] to-[#a47cc2] bg-cover bg-center"
+      className="
+        relative min-h-screen flex flex-col items-center justify-start text-[#3b2f2f] overflow-hidden px-4 pt-10 pb-20 
+        bg-gradient-to-br from-[#fff8e1] via-[#f3d98a] via-40% via-[#eecb66] to-[#a47cc2] bg-cover bg-center
+      "
     >
       {/* Ornamen */}
       <img
         src="/images/seni3.png"
         alt="Awan"
-        className="absolute left-0 bottom-10 md:top-10 w-40 sm:w-56 opacity-25 animate-floating"
+        className="absolute top-120 lg:top-10 left-0 w-40 sm:w-56 opacity-25 animate-floating pointer-events-none"
       />
       <img
         src="/images/seni4.png"
         alt="Daun"
-        className="absolute right-0 bottom-0 w-48 sm:w-60 opacity-40 animate-floating-slow"
+        className="absolute right-0 bottom-10 sm:bottom-20 w-48 sm:w-60 opacity-40 animate-floating-slow pointer-events-none"
       />
 
       {/* Judul */}
-      <h1 className="title tracking-widest text-3xl sm:text-4xl md:text-6xl mb-6 text-yellow-600 drop-shadow-[0_0_20px_rgba(250,204,21,0.8)] animate-fade-in">
+      <h1 className="
+        title tracking-widest text-center text-3xl sm:text-4xl md:text-6xl mb-6 text-yellow-600 drop-shadow-[0_0_20px_rgba(250,204,21,0.8)] 
+        animate-fade-in"
+      >
         Jelajahi Nusantara
       </h1>
 
       {/* Carousel Lukisan */}
-      <div className="relative w-full max-w-2xl h-64 mb-8 rounded-2xl overflow-hidden shadow-2xl border-2 border-[#c78b2d] animate-fade-in">
+      <div className="relative w-full max-w-2xl h-64 mb-10 rounded-2xl overflow-hidden shadow-2xl border-2 border-[#c78b2d] animate-fade-in">
         <img
           src="/images/lukisan.jpg"
           alt="Lukisan"
@@ -161,11 +107,13 @@ export default function LinkTreeSection() {
               else if (link.action === "video") setModal("video");
               else window.open(link.url, "_blank");
             }}
-            className="border border-[#c78b2d] py-3 rounded-xl text-center text-lg font-semibold
-            transition-all duration-300 shadow-md hover:scale-105 
-            bg-gradient-to-br from-[#fff9e8]/80 via-[#fff5e1]/70 to-[#a47cc2]/20 
-            hover:from-[#fff9e8] hover:to-[#a47cc2]/60 
-            cursor-pointer text-[#3b2f2f]"
+            className="
+              border border-[#c78b2d] py-3 rounded-xl text-center text-lg font-semibold
+              transition-all duration-300 shadow-md hover:scale-105 
+              bg-gradient-to-br from-[#fff9e8]/80 via-[#fff5e1]/70 to-[#a47cc2]/20 
+              hover:from-[#fff9e8] hover:to-[#a47cc2]/60 
+              cursor-pointer text-[#3b2f2f]
+            "
           >
             <span className="subtitle text-base tracking-widest">{link.title}</span>
           </button>
@@ -173,52 +121,56 @@ export default function LinkTreeSection() {
       </div>
 
       {/* Anggota Kelompok */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={showMembers ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8 }}
-        className="w-full max-w-6xl mt-12 px-2"
-      >
-        <h2 className="title tracking-widest text-center text-3xl sm:text-4xl mb-6 text-yellow-600 drop-shadow-[0_0_20px_rgba(250,204,21,0.8)] animate-fade-in">
+      <div className="w-full max-w-6xl mt-12 px-2 animate-fade-in">
+        <h2 className="
+          title tracking-widest text-center text-3xl sm:text-4xl mb-6 text-yellow-600 drop-shadow-[0_0_20px_rgba(250,204,21,0.8)] animate-fade-in"
+        >
           Tim Dibalik Layar
         </h2>
 
-        <div className="flex flex-wrap md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center gap-4 overflow-x-auto md:overflow-visible py-2 -mx-2 px-2">
+        <div className="
+          flex flex-wrap md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center gap-4 overflow-x-auto md:overflow-visible py-2 -mx-2 px-2"
+        >
           {members.map((member, i) => (
-            <motion.div
-              key={member.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={showMembers ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: i * 0.08, duration: 0.4 }}
-              className="flex-shrink-0 w-36 md:w-auto bg-[#fff5e1]/60 backdrop-blur-sm border border-[#c78b2d] rounded-2xl p-4 duration-300 hover:scale-105 transition-all flex flex-col items-center"
+            <div key={member.name}
+              className="
+                flex-shrink-0 w-36 md:w-auto bg-[#fff5e1]/60 backdrop-blur-sm border border-[#c78b2d] rounded-2xl p-4 duration-300 
+                hover:scale-105 transition-all flex flex-col items-center animate-fade-in
+              "
             >
               <img
                 src={member.avatar || "/images/avatar-placeholder.png"}
                 alt={member.name}
                 className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-yellow-400 mb-2"
               />
-
-              {/* Social Media Icons */}
-              {member.socials && (
-                <div className="flex gap-3 m-2">
-                  {member.socials.instagram && (
-                    <SocialIcon type="instagram" url={member.socials.instagram} />
-                  )}
-                  {member.socials.linkedin && (
-                    <SocialIcon type="linkedin" url={member.socials.linkedin} />
-                  )}
-                </div>
-              )}
-
               <p className="subtitle text-sm md:text-base font-semibold text-[#3b2f2f] text-center">
                 {member.name}
               </p>
-              <p className="subtitle text-xs text-yellow-600 opacity-80 text-center mt-1">
-                {member.role}
-              </p>
-            </motion.div>
+            </div>
           ))}
         </div>
+      </div>
+
+      {/* Instagram Departemen Seni Budaya */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+        className="my-10 flex justify-center z-10 relative"
+      >
+        <a
+          href="https://www.instagram.com/senbud_ormawaeksepku/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 px-5 py-3 rounded-full text-sm sm:text-base font-semibold
+          bg-gradient-to-br from-yellow-400 to-purple-500 text-[#fff5e1]
+          shadow-lg hover:shadow-xl hover:scale-105 transition-all animated-fade-in duration-300"
+        >
+          <FaInstagram className="w-5 h-5" />
+          <span className="subtitle tracking-wider">
+            Follow Departemen Seni Budaya
+          </span>
+        </a>
       </motion.div>
 
       {/* Gelombang bawah */}

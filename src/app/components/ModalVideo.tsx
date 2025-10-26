@@ -23,7 +23,7 @@ export default function ModalVideo({ isOpen, onClose }: { isOpen: boolean; onClo
               className="bg-black rounded-2xl overflow-hidden max-w-4xl w-full border-2 border-yellow-100 shadow-2xl"
             >
               <div className="flex justify-between items-center p-4 bg-gradient-to-br from-yellow-100 via-white to-purple-100 text-yellow-600">
-                <h2 className="text-lg sm:text-xl font-bold">🎨 Proses Lukisan Sang Legenda</h2>
+                <h2 className="text-lg sm:text-xl font-bold">🎬 Resonansi Cita: Aftermovie Comiculture Nusantara</h2>
                 <button onClick={onClose} className="text-yellow-600 hover:text-purple-400 text-2xl cursor-pointer">&times;</button>
               </div>
 
@@ -33,8 +33,7 @@ export default function ModalVideo({ isOpen, onClose }: { isOpen: boolean; onClo
                   controls
                   autoPlay
                   muted
-                  src="/videos/proses-lukisan.mp4"
-                  poster="/images/poster-video.jpg"
+                  src="/videos/aftermovie.mp4"
                 />
               </div>
             </Dialog.Panel>

@@ -157,7 +157,7 @@ export default function OpeningAnimation({ onFinish }: OpeningAnimationProps) {
           drop-shadow-[0_0_10px_rgba(250,204,21,0.9)]
           [text-shadow:_0_0_10px_rgba(250,204,21,0.9),_0_0_20px_rgba(168,85,247,0.7),_0_0_35px_rgba(0,0,0,0.6)]"
         >
-          Legenda yang hidup
+          Lembaran Cerita Nusantara
         </h1>
         <p className="subtitle mt-3 sm:mt-4 text-base sm:text-md md:text-lg text-white drop-shadow-[0_0_10px_rgba(250,204,21,0.9)]
           [text-shadow:_0_0_10px_rgba(250,204,21,0.9),_0_0_20px_rgba(168,85,247,0.7),_0_0_35px_rgba(0,0,0,0.6)] tracking-widest opacity-80 animate-pulse">
@@ -174,8 +174,8 @@ export default function OpeningAnimation({ onFinish }: OpeningAnimationProps) {
         {/* Logo kiri */}
         <motion.img
           src="/images/senibudaya.png"
-          alt="Tarian"
-          className="w-16 sm:w-20 md:w-24 max-w-[50%] opacity-60 drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]"
+          alt="Logo Senibudaya"
+          className="w-16 sm:w-18 max-w-[50%] opacity-60 drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]"
           initial={{ y: 15 }}
           animate={{
             y: [0, -10, 0],
@@ -192,7 +192,24 @@ export default function OpeningAnimation({ onFinish }: OpeningAnimationProps) {
         <motion.img
           src="/images/Logo_IPB.svg"
           alt="Logo Universitas"
-          className="w-16 sm:w-20 md:w-24 max-w-[50%] opacity-60 drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]"
+          className="w-16 sm:w-18 max-w-[50%] opacity-60 drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]"
+          initial={{ y: 15 }}
+          animate={{
+            y: [0, -10, 0],
+            rotate: [0, 2, -2, 0],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        {/* Logo Tengah */}
+        <motion.img
+          src="/images/logo_2.png"
+          alt="Logo 2"
+          className="w-16 sm:w-18 max-w-[50%] opacity-60 drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]"
           initial={{ y: 15 }}
           animate={{
             y: [0, -10, 0],
