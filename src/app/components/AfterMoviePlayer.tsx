@@ -20,13 +20,11 @@ export default function AfterMoviePlayer({ onEnd }: AfterMoviePlayerProps) {
         const video = videoRef.current;
 
         if (video) {
-          // Autoplay muted agar tidak diblokir di Android
           video.muted = true;
-          video.playsInline = true;
           video.controls = true;
+          video.playsInline = true;
           video.onended = onEnd;
 
-          // Coba autoplay
           video.play().catch((err) => {
             console.warn("Autoplay diblokir:", err);
           });
@@ -36,23 +34,6 @@ export default function AfterMoviePlayer({ onEnd }: AfterMoviePlayerProps) {
 
     return () => clearTimeout(fadeTimer);
   }, [onEnd]);
-
-  // Tambahkan handler agar user bisa unmute & fullscreen setelah klik
-  const handleUserInteraction = () => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    // Jika video masih mute, unmute setelah user interaksi
-    if (video.muted) {
-      video.muted = false;
-      video.volume = 1.0;
-    }
-
-    // Minta fullscreen hanya setelah interaksi user (agar tidak diblokir)
-    if (video.requestFullscreen) {
-      video.requestFullscreen().catch((err) => console.warn("Fullscreen gagal:", err));
-    }
-  };
 
   return (
     <div className="fixed inset-0 flex items-center justify-center overflow-hidden bg-[#FFF8F0]">
@@ -79,19 +60,17 @@ export default function AfterMoviePlayer({ onEnd }: AfterMoviePlayerProps) {
       )}
 
       {showVideo && (
-        <div className="relative w-screen h-screen">
-          <video
-            ref={videoRef}
-            src="/videos/aftermovie.mp4"
-            autoPlay
-            playsInline
-            muted
-            controls
-            preload="auto"
-            className="w-full h-full object-cover z-10"
-            onEnded={onEnd}
-          />
-        </div>
+        <video
+          ref={videoRef}
+          src="/videos/aftermovie.mp4"
+          autoPlay
+          muted
+          playsInline
+          controls
+          preload="auto"
+          className="w-full h-full object-cover z-10"
+          onEnded={onEnd}
+        />
       )}
     </div>
   );
