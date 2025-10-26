@@ -18,7 +18,7 @@ export default function ModalStory({
     `<strong>Comiculture Nusantara</strong> menjadi harmoni antara warisan budaya Nusantara dan semangat eksplorasi generasi muda — menciptakan resonansi cita yang terus hidup dan berkembang.`,
   ];
 
-  const AUTO_ADVANCE_MS = 8000;
+  const AUTO_ADVANCE_MS = 12000;
   const [step, setStep] = useState(0);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef<number | null>(null);
@@ -88,7 +88,7 @@ export default function ModalStory({
                 {/* Header */}
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
-                    <h3 className="title text-lg sm:text-xl md:text-2xl font-extrabold text-yellow-600 tracking-wide">
+                    <h3 className="title text-xl sm:text-2xl md:text-3xl font-extrabold text-yellow-600  tracking-widest">
                       ✨ Filosofi Comiculture Nusantara
                     </h3>
                   </div>

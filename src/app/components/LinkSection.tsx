@@ -50,7 +50,7 @@ export default function LinkTreeSection() {
 
   const links: LinkItem[] = [
     {
-      title: "🎬 Saksikan Kembali Kisah Kami",
+      title: "🎬 Saksikan Kembali",
       url: "#",
       action: "video",
     },
