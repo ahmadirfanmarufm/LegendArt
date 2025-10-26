@@ -91,14 +91,6 @@ export default function AfterMoviePlayer({ onEnd }: AfterMoviePlayerProps) {
             className="w-full h-full object-cover z-10"
             onEnded={onEnd}
           />
-
-          {/* Tombol overlay agar user bisa unmute/fullscreen manual */}
-          <button
-            onClick={handleUserInteraction}
-            className="absolute bottom-6 right-6 bg-black/40 hover:bg-black/60 text-white text-sm md:text-base px-4 py-2 rounded-lg transition"
-          >
-            🎬 Tonton Penuh
-          </button>
         </div>
       )}
     </div>
